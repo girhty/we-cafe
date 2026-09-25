@@ -1,0 +1,33 @@
+---
+interface Review { author: string; rating: number; text: string }
+interface Props { reviews: Review[]; rating: number; total: number }
+const { reviews, rating, total } = Astro.props;
+// Deduplicate reviews
+const uniqueReviews = reviews.filter((v, i, a) => a.findIndex(t => (t.author === v.author && t.text === v.text)) === i);
+---
+<section class="py-24 bg-brand-50" aria-labelledby="reviews-heading">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 id="reviews-heading" class="text-4xl md:text-5xl font-extrabold mb-6">Loved by Our Guests</h2>
+      <div class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-brand-100">
+        <span class="text-yellow-500 text-2xl tracking-tighter" aria-hidden="true">★★★★★</span>
+        <span class="font-bold text-xl text-brand-900">{rating} / 5</span>
+        <span class="text-gray-500 font-medium">based on {total} Google Reviews</span>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {uniqueReviews.map((r) => (
+        <article class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 flex flex-col justify-between hover:shadow-md transition">
+          <blockquote class="mb-6">
+            <div class="flex text-yellow-500 mb-4 text-lg" aria-label={`${r.rating} out of 5 stars`}>
+              {Array.from({ length: r.rating }).map(() => <span aria-hidden="true">★</span>)}
+              {Array.from({ length: 5 - r.rating }).map(() => <span class="text-gray-300" aria-hidden="true">★</span>)}
+            </div>
+            <p class="text-gray-700 italic leading-relaxed">"{r.text}"</p>
+          </blockquote>
+          <footer class="font-bold text-brand-900 border-t border-brand-50 pt-4">— {r.author}</footer>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

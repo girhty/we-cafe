@@ -1,0 +1,51 @@
+---
+interface Props { cafe: any }
+const { cafe } = Astro.props;
+---
+<header class="relative bg-brand-900 text-white overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://lh3.googleusercontent.com/grass-cs/ACvplmOpYb3PeMhSx2CvY9TDMQt4tFdO1sE3-RA-iUNW3xwiIwB7ZOXcyhQs0ytgzoc61RM9y9PaOw3A0BHj297fkdyEVhtwIkXCI0viCwuHQnawCj3_HApgGypua1JW6876JHcDdRos7M_A1X-o=w300-h225-p-k-no" 
+      alt="We cafe ambient interior" 
+      class="w-full h-full object-cover opacity-25" 
+      aria-hidden="true"
+    />
+  </div>
+  <nav class="relative z-10 container mx-auto px-6 py-6 flex justify-between items-center" aria-label="Main Navigation">
+    <span class="text-2xl font-bold tracking-tight">WE<span class="text-brand-accent">CAFE</span></span>
+    <a href="#contact" class="bg-brand-accent hover:bg-orange-700 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-md">Book a Table</a>
+  </nav>
+
+  <div class="relative z-10 container mx-auto px-6 py-24 md:py-36 text-center max-w-5xl mx-auto">
+    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full mb-10 border border-white/20">
+      <span class="text-yellow-400 text-xl" aria-hidden="true">⭐</span>
+      <span class="font-semibold text-sm md:text-base">Google Rating {cafe.rating} ({cafe.reviewsTotal} verified reviews)</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8">Your Perfect Blend of <span class="text-brand-500">Flavor & Vibe</span> in Almansur</h1>
+    <p class="text-lg md:text-2xl text-brand-100 mb-12 max-w-3xl mx-auto">Indulge in premium coffee, mouth-watering diner classics, and relaxing shisha. Catch the big game on our screens or unwind in our spacious outdoor seating.</p>
+    <div class="flex flex-col sm:flex-row gap-5 justify-center">
+      <a href="#contact" class="bg-brand-accent hover:bg-orange-600 text-white text-lg px-10 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">Reserve Your Spot Now</a>
+      <a href="#gallery" class="bg-white/20 hover:bg-white/30 backdrop-blur text-white text-lg px-10 py-4 rounded-full font-bold border border-white/30 transition">View Gallery</a>
+    </div>
+  </div>
+</header>
+
+<section class="bg-brand-50 py-20 border-b border-brand-100">
+  <div class="container mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
+    <div class="bg-white p-8 rounded-2xl shadow-sm">
+      <span class="text-4xl mb-4 block" aria-hidden="true">☕</span>
+      <h3 class="font-bold text-xl mb-3 text-brand-900">Premium Coffee & Eats</h3>
+      <p class="text-gray-600">A delicious variety of hand-crafted drinks and hearty diner classics made fresh for every craving.</p>
+    </div>
+    <div class="bg-white p-8 rounded-2xl shadow-sm">
+      <span class="text-4xl mb-4 block" aria-hidden="true">⚽</span>
+      <h3 class="font-bold text-xl mb-3 text-brand-900">Live Match Screens</h3>
+      <p class="text-gray-600">Never miss a moment. Enjoy the perfect view of the biggest football matches on our large screens.</p>
+    </div>
+    <div class="bg-white p-8 rounded-2xl shadow-sm">
+      <span class="text-4xl mb-4 block" aria-hidden="true">🌿</span>
+      <h3 class="font-bold text-xl mb-3 text-brand-900">Cozy Shisha & Seating</h3>
+      <p class="text-gray-600">Relax in stylish indoor comfort or our beautiful outdoor area while enjoying premium shisha.</p>
+    </div>
+  </div>
+</section>

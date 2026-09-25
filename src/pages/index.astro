@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
+import Reviews from '../components/Reviews.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const cafe = {
+  name: "We cafe",
+  rating: 4.3,
+  reviewsTotal: 5,
+  address: "Baghdad-almansur, Baghdad, 00964",
+  phone: "0771 287 7387"
+};
+
+const googleReviews = [
+  { author: "Abdulrahman Qazzaz", rating: 5, text: "Nice place, nice atmosphere, good variety and kind staff. The outdoor seating of the place was nice, the lighting in the place was dim and relaxing." },
+  { author: "yasmine amer", rating: 3, text: "Very beautiful outstanding place. Very spacious and clean. The lights and the space between the tables and another are just perfect." },
+  { author: "Rami Ahmed", rating: 4, text: "Nice Atmosphere with Indoor and Outdoor seating, has screens for watching football matches, suitable as a diner or as a Cafe, Smoke area is available where you can enjoy shisha." }
+];
+
+const photos = [
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmOpYb3PeMhSx2CvY9TDMQt4tFdO1sE3-RA-iUNW3xwiIwB7ZOXcyhQs0ytgzoc61RM9y9PaOw3A0BHj297fkdyEVhtwIkXCI0viCwuHQnawCj3_HApgGypua1JW6876JHcDdRos7M_A1X-o=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmOqa2zigxmOFqWx4gbq99bzYN7FVE0YcFPV4_IEOS_ai1227gQh-K23dXPQztM_-4O2AFe-l-mH0ty6x8KbjjjWMQLs_Igwrgqwn-zvOKuorLNPnDWITc8RIN24t5yKBIIcZ2vAS6YUEw5D=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmOblItwAR6UuFGuH9vlQ6Epe_YwrOhANhe24RyNP6tDMDAF6MI-0k7zMSxjh6zp55WGUGzN_lS9gX9ezZj77fY0wtGJAaI2yQL3vPmhO8Zy3EKfAbh0nz4EAaX2XqUBmmManurQ_ikQqUD1=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmPVPwKqbutfpVbmPW_H3z8oxMK2fxm71xdvasA59MOG0qXI2LUCoX_af-buGU7FZIzr5a5ye7WFuI6L_RQw_Enva9uFW6rESStPkiCw47Fes8sAmWK6qIwzA-ixZBmKFvLti0c-LkJzcojP=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmPJ0agaL0urgoTVJ7qbJafwxYYM-qSp6aVVYJ4RIapu3vRfHUve_O6r9BMBWzQJ2GdE2C-UNYC-ZMUghTmqvQMRT9KM049p3FnUazGXBOTaq2qLCklBW0w5OfBpkBiOexaEFJnQvg=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmMXKFA31le4p2wgTQEkcUeWuLIiSMuubVf_3VGyvlN-ZB2-gPCQZ4losJBJ9i1aEhrQl_OCuxmEQDSIFhGWqjfKOKgVKilZiNsSbzxchHLk9anCKIxtdXTQFysuxseHm1CGK9w=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmPIGnG3Uceq26HRv0UdkzzvE4KmiK0ygPO5QLnLHx6gRqB5IJQ3H5lgX-gbd-5kTaQtVZ2j-5-BlMOL_SuLB1ibEYwj4XPBH7ae4zoc-1dif7joncOgGz6tOJ7jxnYoedSKYr73=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmOLybV07vGtjMx6kXoYabJkID2WcdeTKJqsWvKkfDinxfOrD1-vr2dnhsX4xfdFabEaOTlegn4ugnB6NBbR-B0P3EFJHnUM_J2dwcPvAHPyQgyAtyFGg5hzLPMzCTvL02IjnFsV=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmM4oSLY65UZmDBB_E18atEMqeYsqzL1a2i3GapQtzp3xnZ8CcUstyPPcI0D77VcoLyWYpzpMO3TOKAkEyPU1w2F_MH1-HSkN4VKQ3o2JM7_OlDfpvOMTYuM8LyWQpncWlL6pk3hyw=w300-h225-p-k-no",
+  "https://lh3.googleusercontent.com/grass-cs/ACvplmPyzmEb-3G2A3y04UXIull6BqqPwMtwaji4zYLcvFK76uJN1DZMcxk9hZAe_zrvw10-551Oc2f-n8TTxLr6VH45ysKeXJxwqD1c-Cl8rZoAPLuT0O-41BPb1Y1MHMWnvIVVxo4x=w300-h225-p-k-no"
+];
+
+const metaTitle = "We cafe | Best Cafe & Diner in Almansur, Baghdad";
+const metaDesc = "Experience the perfect blend of cozy atmosphere, delicious dining, premium shisha, and big-screen matches at We cafe in Baghdad-almansur. Reserve your spot today!";
+---
+<Layout title={metaTitle} description={metaDesc}>
+  <Hero cafe={cafe} />
+  <section id="gallery" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">Step Inside <span class="text-brand-500">We Cafe</span></h2>
+      <Gallery photos={photos} />
+    </div>
+  </section>
+  <Reviews reviews={googleReviews} rating={cafe.rating} total={cafe.reviewsTotal} />
+  <Contact cafe={cafe} />
+  <Footer cafe={cafe} />
+</Layout>

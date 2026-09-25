@@ -1,0 +1,15 @@
+---
+interface Props { cafe: any }
+const { cafe } = Astro.props;
+const telLink = cafe.phone.replace(/\s/g, '');
+---
+<footer class="bg-brand-900 text-brand-100 py-16 text-center border-t border-white/10">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-white mb-6 tracking-tight">WE<span class="text-brand-accent">CAFE</span></h2>
+    <address class="mb-8 not-italic text-gray-300">
+      {cafe.address} <span class="mx-2 text-gray-500">•</span> 
+      <a href={`tel:${telLink}`} class="hover:text-white transition">{cafe.phone}</a>
+    </address>
+    <p class="text-sm opacity-50">© {new Date().getFullYear()} {cafe.name}. All rights reserved. Crafted for great moments and perfect vibes.</p>
+  </div>
+</footer>
